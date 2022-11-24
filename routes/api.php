@@ -25,8 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::resource('/posts', BlogpostController::class, ['only' => ['index', 'show']]);
-Route::resource('/posts', BlogpostController::class, ['except' => ['index', 'show']])->middleware('auth:sanctum');
-Route::post('/posts/{id}/comments', [BlogPostController::class, 'storePostComment'])->middleware('auth:sanctum');
+Route::resource('/posts', BlogpostController::class, ['except' => ['index', 'show']]);#->middleware('auth:sanctum');
+Route::post('/posts/{id}/comments', [BlogPostController::class, 'storePostComment']);#->middleware('auth:sanctum');
 
 
 Route::post('/register', [ApiAuthController::class, 'register']);
